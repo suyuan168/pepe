@@ -27,6 +27,11 @@ ipq40xx_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"0t@eth0" "5:lan" "4:wan"
 		;;
+	nhx,nhx4019)
+		ucidef_set_interfaces_lan_wan "eth0" "eth1"
+		ucidef_add_switch "switch0" \
+			"0u@eth0" "1:lan" "2:lan" "3:lan" "4:lan"
+		;;
 	aruba,ap-303h|\
 	asus,rt-acrh17|\
 	asus,rt-ac58u|\
@@ -35,6 +40,7 @@ ipq40xx_setup_interfaces()
 	century,wr142ac-nand|\
 	ezviz,cs-w3-wd1200g-eup|\
 	linksys,ea6350v3|\
+	pangu,l1000|\
 	linksys,ea8300|\
 	unielec,u4019-32m)
 		ucidef_add_switch "switch0" \
@@ -51,6 +57,11 @@ ipq40xx_setup_interfaces()
 	avm,fritzbox-7530)
 		ucidef_add_switch "switch0" \
 			"0t@eth0" "1:lan" "2:lan" "3:lan" "4:lan"
+		;;
+	zbt,z4019)
+		ucidef_set_interfaces_lan_wan "eth0" "eth1"
+		ucidef_add_switch "switch0" \
+			"0u@eth0" "1:lan" "2:lan" "3:lan" "4:lan"
 		;;
 	aruba,ap-303|\
 	aruba,ap-365|\
@@ -148,6 +159,10 @@ ipq40xx_setup_macs()
 		wan_mac=$(mtd_get_mac_ascii 0:APPSBLENV wanaddr)
 		lan_mac=$(mtd_get_mac_ascii 0:APPSBLENV ethaddr)
 		label_mac=$wan_mac
+		;;
+	zbt,z4019)
+		wan_mac=$(mtd_get_mac_binary "0:ART" 0x0)
+		lan_mac=$(mtd_get_mac_binary "0:ART" 0x6)
 		;;
 	engenius,ens620ext)
 		wan_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)

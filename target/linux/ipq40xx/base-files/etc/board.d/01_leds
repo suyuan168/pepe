@@ -53,6 +53,27 @@ engenius,eap2200)
 	ucidef_set_led_switch "lan1" "LAN1" "blue:lan1" "switch0" "0x10"
 	ucidef_set_led_switch "lan2" "LAN2" "blue:lan2" "switch0" "0x20"
 	;;
+nhx,nhx4019)
+	ucidef_set_led_wlan "wlan2g" "WLAN2G" "nhx:wifi2" "phy0tpt"
+	ucidef_set_led_wlan "wlan5g" "WLAN5G" "nhx:wifi5g" "phy1tpt"
+	ucidef_set_led_netdev "wan" "WAN" "nhx:net" "eth1"
+	;;
+pangu,l1000)
+	ucidef_set_led_default "power" "POWER" "blue:power" "1"
+    ucidef_set_led_wlan "wlan2g" "WLAN2G" "blue:wlan2g" "phy0tpt"
+	ucidef_set_led_wlan "wlan5g" "WLAN5G" "blue:wlan5g" "phy1tpt"
+	ucidef_set_led_netdev "wan" "WAN" "blue:wan" "eth1"
+	ucidef_set_led_netdev "4g1" "4g1" "blue:4g1" "4g1"
+	ucidef_set_led_netdev "4g2" "4g2" "blue:4g2" "4g2"
+	ucidef_set_led_netdev "4g3" "4g3" "blue:4g3" "4g3"
+    ;;
+zbt,z4019)
+	ucidef_set_led_wlan "wlan2g" "WLAN2G" "green:wlan0" "phy0tpt"
+	ucidef_set_led_wlan "wlan5g" "WLAN5G" "green:wlan1" "phy1tpt"
+	ucidef_set_led_netdev "wwan0" "4G" "green:4g" "wwan0"
+	ucidef_set_led_netdev "wwan1" "4G1" "green:4g2" "wwan1"
+	ucidef_set_led_netdev "wwan2" "4G2" "green:4g3" "wwan2"
+	;;
 engenius,ens620ext)
 	ucidef_set_led_wlan "wlan2g" "WLAN2G" "green:wlan2G" "phy0tpt"
 	ucidef_set_led_wlan "wlan5g" "WLAN5G" "green:wlan5G" "phy1tpt"

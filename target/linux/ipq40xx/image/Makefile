@@ -129,6 +129,44 @@ define Device/8dev_jalapeno
 endef
 TARGET_DEVICES += 8dev_jalapeno
 
+define Device/pangu_l1000
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := PANGU
+	DEVICE_MODEL := L1000
+	SOC := qcom-ipq4019
+	DEVICE_DTS := qcom-ipq4019-l1000
+	KERNEL_INSTALL := 1
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	BOARD_NAME := l1000
+	DEVICE_PACKAGES := ipq-wifi-pangu_l1000
+endef
+TARGET_DEVICES += pangu_l1000
+
+define Device/zbt_z4019
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := ZBT
+	DEVICE_MODEL := Z4019
+	SOC := qcom-ipq4019
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DEVICE_PACKAGES := -kmod-ath10k-ct kmod-ath10k-ct-smallbuffers
+endef
+TARGET_DEVICES += zbt_z4019
+
+define Device/nhx_nhx4019
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := NHX
+	DEVICE_MODEL := NHX4019
+	SOC := qcom-ipq4019
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+endef
+TARGET_DEVICES += nhx_nhx4019
+
 define Device/alfa-network_ap120c-ac
 	$(call Device/FitImage)
 	$(call Device/UbiFit)
