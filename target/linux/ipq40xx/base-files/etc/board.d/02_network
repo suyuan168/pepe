@@ -27,25 +27,29 @@ ipq40xx_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"0t@eth0" "5:lan" "4:wan"
 		;;
-	nhx,nhx4019)
-		ucidef_add_switch "switch0" \
-			"0t@eth0" "1:lan" "2:lan" "3:lan" "4:lan" "5:lan"
-		;;
 	aruba,ap-303h|\
 	asus,rt-acrh17|\
 	asus,rt-ac58u|\
 	avm,fritzbox-4040|\
+	pangu,l1000|\
 	century,wr142ac|\
 	century,wr142ac-nand|\
 	ezviz,cs-w3-wd1200g-eup|\
 	linksys,ea6350v3|\
-	pangu,l1000|\
 	linksys,ea8300|\
 	unielec,u4019-32m)
 		ucidef_add_switch "switch0" \
 			"0t@eth0" "1:lan" "2:lan" "3:lan" "4:lan" "5:wan"
 		;;
-	avm,fritzrepeater-3000|\
+	zbt,z4019)
+		ucidef_add_switch "switch0" \
+			"0t@eth0" "1:lan" "2:lan" "3:lan" "4:lan" "5:wan"
+		;;
+	nhx,nhx4019)
+		ucidef_add_switch "switch0" \
+			"0t@eth0" "1:lan" "2:lan" "3:lan" "4:lan" "5:wan"
+		;;
+	zrepeater-3000|\
 	compex,wpj419|\
 	compex,wpj428|\
 	engenius,eap1300|\
@@ -56,10 +60,6 @@ ipq40xx_setup_interfaces()
 	avm,fritzbox-7530)
 		ucidef_add_switch "switch0" \
 			"0t@eth0" "1:lan" "2:lan" "3:lan" "4:lan"
-		;;
-	zbt,z4019)
-		ucidef_add_switch "switch0" \
-			"0t@eth0" "1:lan" "2:lan" "3:lan" "4:lan" "5:lan"
 		;;
 	aruba,ap-303|\
 	aruba,ap-365|\
@@ -157,10 +157,6 @@ ipq40xx_setup_macs()
 		wan_mac=$(mtd_get_mac_ascii 0:APPSBLENV wanaddr)
 		lan_mac=$(mtd_get_mac_ascii 0:APPSBLENV ethaddr)
 		label_mac=$wan_mac
-		;;
-	zbt,z4019)
-		wan_mac=$(mtd_get_mac_binary "0:ART" 0x0)
-		lan_mac=$(mtd_get_mac_binary "0:ART" 0x6)
 		;;
 	engenius,ens620ext)
 		wan_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)
