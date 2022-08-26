@@ -134,7 +134,6 @@ define Device/pangu_l1000
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := PANGU
 	DEVICE_MODEL := L1000
-	SOC := qcom-ipq4019
 	DEVICE_DTS := qcom-ipq4019-l1000
 	KERNEL_INSTALL := 1
 	BLOCKSIZE := 128k
@@ -149,7 +148,6 @@ define Device/zbt_z4019
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := ZBT
 	DEVICE_MODEL := Z4019
-	SOC := qcom-ipq4019
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 	DEVICE_PACKAGES := -kmod-ath10k-ct kmod-ath10k-ct-smallbuffers
@@ -161,7 +159,6 @@ define Device/nhx_nhx4019
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := NHX
 	DEVICE_MODEL := NHX4019
-	SOC := qcom-ipq4019
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 endef
