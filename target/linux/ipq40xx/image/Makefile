@@ -148,6 +148,7 @@ define Device/zbt_z4019
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := ZBT
 	DEVICE_MODEL := Z4019
+	DEVICE_DTS := qcom-ipq4019-z4019
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 	DEVICE_PACKAGES := -kmod-ath10k-ct kmod-ath10k-ct-smallbuffers
@@ -159,6 +160,7 @@ define Device/nhx_nhx4019
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := NHX
 	DEVICE_MODEL := NHX4019
+	DEVICE_DTS := qcom-ipq4019-nhx4019
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 endef
